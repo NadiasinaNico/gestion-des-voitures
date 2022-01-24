@@ -18,23 +18,18 @@
 				<li class="nav-item">
 					<a class="nav-link" href="{{path('voiture')}}">Voitures</a>
 				</li>
-				{# {% if is_granted('ROLE_ADMIN') %}
 				<li class="nav-item">
 					<a class="nav-link" href="{{path('administration')}}">Administration</a>
 				</li>
-				{% endif %}
-				{% if not app.user %}
 				<li class="nav-item">
-					<a class="nav-link" href="{{path('inscription')}}">Inscription</a>
-				</li>
-					<li class="nav-item">
 					<a class="nav-link" href="{{path('connexion')}}">Se connecter</a>
 				</li>
-				{% else %}
 					<li class="nav-item">
-					<a class="nav-link" href="{{path('deconnexion')}}">Deconnexion</a>
+					<a class="nav-link" href="{{path('user')}}">S'inscrire</a>
 				</li>
-				{% endif %} #}
+				<li class="nav-item">
+					<a class="nav-link" href="{{path('user')}}">Deconnecter</a>
+				</li>
 
 			</ul>
 		</nav>

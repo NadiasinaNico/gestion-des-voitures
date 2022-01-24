@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<h4 class="text-primary mt-4">Connexion</h4>
+			<div class="col-5">
+				<form action="">
+					<div class="form-group">
+						<label for="">Username</label>
+						<input type="text" class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="">Password</label>
+						<input type="password" class="form-control">
+					</div>
+					<input type="submit" value="s'indentifier" class="btn btn-success mt-4">
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -5,10 +5,47 @@
 
 {% block body %}
 	<div class="container">
-		<div class="row">
-			<div class="col-6">
-				Hello Nadiasina
-			</div>
+		<h3>Listes des voitures</h3>
+		<div class="row no-gutters">
+			{% for voitures in voiture %}
+				<div class="col-12 col-lg-4 mt-4">
+					<div class="card mt-4 mb-2">
+						<div class="row no-gutters align-items-center p-2">
+							<div class="col-12 col-md-4">
+								<img src="{{asset('images/' ~ voitures.modele.image)}}" style="width:90px" alt="">
+							</div>
+							<div class="col">
+								<div class="card-body">
+									<h4 class="card-title">
+										<small class="text-primary">{{ voitures.modele.marque.libelle}}</small>
+									</h4>
+									<div class="card-link">matricule:
+										<small class="text-warning">{{voitures.immatriculation}}</small>
+									</div>
+									<div class="card-text">Modele:
+										{{ voitures.modele.libelle}}</div>
+
+									<div class="card-link text-success">Prix Moyenne :
+										<small class="text-warning">{{voitures.modele.prixMoyenne}}
+											$</small>
+									</div>
+									<div>Nombres de portes :
+										{{voitures.nombrePortes}}</div>
+								</div>
+							</div>
+						</div>
+						{% if admin %}
+							<div class="d-flex  m-4 text-align-center justify-center">
+								<a href="{{ path("modificationVoiture", {'id': voitures.id})}}" class="btn btn-success">Modifier</a>
+								<a href="" class="btn btn-danger">Supprimer</a>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="navigation mt-4">
+			{{ knp_pagination_render(voiture) }}
 		</div>
 	</div>
 

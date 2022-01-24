@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}modification voiture
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="row">
+			<h4 class="text-primary mt-4">Modification Voiture</h4>
+			<div class="col-5">
+				{{ form_start(form) }}
+				{{ form_row(form.immatriculation) }}
+				{{ form_row(form.nombrePortes) }}
+				{{ form_end(form) }}
+				<input type="submit" value="Enregistrer" class="btn btn-primary mt-4">
+			</div>
+		</div>
+	</div>
+{% endblock %}
