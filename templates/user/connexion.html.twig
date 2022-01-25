@@ -8,14 +8,19 @@
 		<div class="row">
 			<h4 class="text-primary mt-4">Connexion</h4>
 			<div class="col-5">
-				<form action="">
+				{% if error %}
+					<div class="alert alert-danger">
+					L'utilisateur et le mot de pass ne sont pas bon.
+					</div>
+			{% endif %}
+				<form action="{{path('connexion')}}" method="post">
 					<div class="form-group">
 						<label for="">Username</label>
-						<input type="text" class="form-control">
+						<input type="text" class="form-control" name="_username" value="{{lastUserName}}">
 					</div>
 					<div class="form-group">
 						<label for="">Password</label>
-						<input type="password" class="form-control">
+						<input type="password" class="form-control" name="_password">
 					</div>
 					<input type="submit" value="s'indentifier" class="btn btn-success mt-4">
 				</form>

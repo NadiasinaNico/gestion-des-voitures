@@ -11,8 +11,10 @@
 				{{ form_start(form) }}
 				{{ form_row(form.username) }}
 				{{ form_row(form.password) }}
+				{{ form_widget(form)}}
+					<input type="submit" value="Enregistrer" class="btn btn-primary mt-4">
 				{{ form_end(form) }}
-				<input type="submit" value="Enregistrer" class="btn btn-primary mt-4">
+			
 			</div>
 		</div>
 	</div>

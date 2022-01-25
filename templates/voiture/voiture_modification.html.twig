@@ -6,7 +6,11 @@
 {% block body %}
 	<div class="container">
 		<div class="row">
+		{% if isModif %}
 			<h4 class="text-primary mt-4">Modification Voiture {{ voitures.immatriculation }}</h4>
+			{% else %}
+				<h4 class="text-primary mt-4">Ajouter Voiture {{ voitures.immatriculation }}</h4>
+				{% endif %}
 			<div class="col-5">
 				{{ form_start(form) }}
 				{{ form_widget(form)}}

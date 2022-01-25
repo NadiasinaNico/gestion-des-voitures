@@ -2,13 +2,21 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UserRepository;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(
+ * fields={"username"},
+ * message="l'utilisateur existe deja"
+ * )
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
@@ -32,6 +40,9 @@ class User
      */
     private $roles;
 
+    /**
+     * @Assert\EqualTo(propertyPath="password", message="le mot de pass ne correspond pas"))
+     */
     private $verificationPassword;
 
     public function getId(): ?int
@@ -75,9 +86,9 @@ class User
         return $this;
     }
 
-    public function getRoles(): ?string
+    public function getRoles()
     {
-        return $this->roles;
+        return [$this->roles];
     }
 
     public function setRoles(string $roles): self
@@ -85,5 +96,11 @@ class User
         $this->roles = $roles;
 
         return $this;
+    }
+    public function eraseCredentials(){
+
+    }
+    public function getSalt(){
+
     }
 }
